@@ -4,8 +4,10 @@ import Box from "@mui/material/Box";
 
 import { ClipboardState, TreeNode } from "@/types/tree";
 import { AddNodeButton, NodeCard } from "@/components/tree/NodeCard";
-import { BranchArrow } from "@/components/tree/BranchConnectors";
-import { rose } from "@/theme/theme";
+import {
+  BranchArrow,
+  connectorColumnSx,
+} from "@/components/tree/BranchConnectors";
 
 type TreeBranchProps = {
   node: TreeNode;
@@ -44,24 +46,7 @@ export function TreeBranch({
       />
 
       {expanded && (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 1,
-            position: "relative",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: 22,
-              bottom: 22,
-              insetInlineStart: 17,
-              width: 2,
-              bgcolor: rose.main,
-              borderRadius: 1,
-            },
-          }}
-        >
+        <Box sx={connectorColumnSx}>
           {node.children.map((child) => (
             <Box
               key={child.id}

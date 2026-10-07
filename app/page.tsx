@@ -15,18 +15,6 @@ export default function Home() {
         py: { xs: 3, md: 5 },
       }}
     >
-      <Typography
-        component="h1"
-        sx={{
-          textAlign: "center",
-          fontSize: { xs: 18, md: 22 },
-          fontWeight: 700,
-          color: "text.primary",
-          mb: 4,
-        }}
-      >
-        در این صفحه هر یک از آیتم‌ها قابلیت باز و بسته شدن دارند مانند تصویر زیر
-      </Typography>
       <AccountTree />
     </Box>
   );

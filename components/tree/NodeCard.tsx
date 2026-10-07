@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import { TreeNode } from "@/types/tree";
+import { GUTTER } from "@/components/tree/BranchConnectors";
 import { rose } from "@/theme/theme";
 
 type NodeCardProps = {
@@ -31,6 +32,8 @@ export function NodeCard({
       sx={{
         all: "unset",
         boxSizing: "border-box",
+        position: "relative",
+        flexShrink: 0,
         width: 248,
         minHeight: 44,
         px: 2,
@@ -54,6 +57,20 @@ export function NodeCard({
           outline: `2px solid ${rose.dark}`,
           outlineOffset: 2,
         },
+        ...(active
+          ? {
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                top: "50%",
+                insetInlineEnd: -GUTTER / 2,
+                width: GUTTER / 2,
+                height: 2,
+                bgcolor: rose.main,
+                transform: "translateY(-50%)",
+              },
+            }
+          : {}),
       }}
     >
       <Typography
